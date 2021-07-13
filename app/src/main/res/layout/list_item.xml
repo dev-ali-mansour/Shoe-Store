@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="shoe_list_item"
+            type="com.udacity.shoestore.domain.model.Shoe" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/shoeItemCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="25dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="6dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/txtShoeName"
+                style="@style/ListItemTextViewStyle"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="@string/shoe_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtShoeNameValue"
+                style="@style/ListItemValueTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@={shoe_list_item.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtShoeName"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Chelsea boots" />
+
+            <TextView
+                android:id="@+id/txtCompanyName"
+                style="@style/ListItemTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/company_name"
+                app:layout_constraintStart_toStartOf="@id/txtShoeName"
+                app:layout_constraintTop_toBottomOf="@id/txtShoeName" />
+
+            <TextView
+                android:id="@+id/txtCompanyNameValue"
+                style="@style/ListItemValueTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@={shoe_list_item.company}"
+                app:layout_constraintEnd_toEndOf="@id/txtShoeNameValue"
+                app:layout_constraintStart_toStartOf="@id/txtShoeNameValue"
+                app:layout_constraintTop_toTopOf="@id/txtCompanyName"
+                tools:text="Queen Victoria" />
+
+            <TextView
+                android:id="@+id/txtShoeSize"
+                style="@style/ListItemTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/shoe_size"
+                app:layout_constraintStart_toStartOf="@id/txtShoeName"
+                app:layout_constraintTop_toBottomOf="@id/txtCompanyName" />
+
+            <TextView
+                android:id="@+id/txtShoeSizeValue"
+                style="@style/ListItemValueTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{Double.toString(shoe_list_item.Size)}"
+                app:layout_constraintEnd_toEndOf="@id/txtShoeNameValue"
+                app:layout_constraintStart_toStartOf="@id/txtShoeNameValue"
+                app:layout_constraintTop_toTopOf="@id/txtShoeSize"
+                tools:text="38" />
+
+            <TextView
+                android:id="@+id/txtDescription"
+                style="@style/ListItemTextViewStyle"
+                android:layout_width="114dp"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                app:layout_constraintStart_toStartOf="@id/txtShoeName"
+                app:layout_constraintTop_toBottomOf="@id/txtShoeSize" />
+
+            <TextView
+                android:id="@+id/txtDescriptionValue"
+                style="@style/ListItemValueTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@={shoe_list_item.description}"
+                app:layout_constraintEnd_toEndOf="@id/txtShoeNameValue"
+                app:layout_constraintStart_toStartOf="@id/txtShoeNameValue"
+                app:layout_constraintTop_toTopOf="@id/txtDescription"
+                tools:text="Chelsea boots are close-fitting, ankle-high boots with an elastic side panel. They often have a loop or tab of fabric on the back of the boot, enabling the boot to be pulled on. The boot dates back to the Victorian era, when it was worn by both men and women." />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

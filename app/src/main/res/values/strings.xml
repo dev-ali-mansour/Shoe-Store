@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+
+    <!-- Strings related to login screen -->
+    <string name="title">MyShoe Inventory App</string>
+    <string name="prompt_email">Email:</string>
+    <string name="email_hint">Enter your email address</string>
+    <string name="prompt_password">Password:</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="action_login">Login</string>
+    <string name="action_register">Register</string>
+
+    <!-- Strings related to welcome screen -->
+    <string name="welcome">Welcome</string>
+    <string name="welcome_body">Welcome to MyShoe Inventory App! Here you can start shopping your favorite shoes.</string>
+    <string name="next_button">Next</string>
+
+    <!-- Strings related to instructions screen -->
+    <string name="instructions">Instructions</string>
+    <string name="instructions_step_one">1. Tap the + icon to add a new shoe item to your inventory</string>
+    <string name="instructions_step_two">2. Tap the Save Button to save the shoe to your inventory</string>
+
+    <!-- Strings related to List item layout -->
+    <string name="shoe_name">Shoe Name:</string>
+    <string name="company_name">Company Name:</string>
+    <string name="shoe_size">Shoe Size:</string>
+    <string name="description">Description</string>
+    <string name="add_shoe">Add Shoe</string>
+    <string name="action_logout">Logout</string>
+    <string name="add_shoe_detail">Add shoe detail</string>
+    <string name="shoe_name_hint">Enter shoe name</string>
+    <string name="company_name_hint">Enter company name</string>
+    <string name="shoe_size_hint">Enter shoe size</string>
+    <string name="description_hint">Enter shoe description</string>
+    <string name="save_button">Save</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="shoes_list">Shoes List</string>
+
+</resources>
