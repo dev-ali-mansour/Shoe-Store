@@ -21,8 +21,10 @@ class ShoeListingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        requireActivity().title=getString(R.string.shoes_list)
+        requireActivity().title = getString(R.string.shoes_list)
+        setHasOptionsMenu(true)
         binding = FragmentShoeListingBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
 
         vieModel.shoes.observe(viewLifecycleOwner, { shoesList ->
             if (shoesList.isNotEmpty()) listShoes(shoesList)
@@ -38,6 +40,17 @@ class ShoeListingFragment : Fragment() {
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu, menu)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+                || super.onOptionsItemSelected(item)
+    }
+
     private fun listShoes(shoes: List<Shoe>) {
         context?.let { context ->
             val shoeContainer = binding.container
@@ -49,7 +62,7 @@ class ShoeListingFragment : Fragment() {
                     false
                 )
                 itemBinding.lifecycleOwner = this
-                itemBinding.shoeListItem = shoe
+                itemBinding.shoe = shoe
                 itemBinding.root.layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.MATCH_PARENT

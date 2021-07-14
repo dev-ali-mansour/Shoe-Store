@@ -24,12 +24,6 @@ class LoginFragment : Fragment() {
                 NavHostFragment.findNavController(this@LoginFragment).navigate(action)
             }
         }
-        setHasOptionsMenu(true)
         return binding.root
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        menu.clear()
     }
 }

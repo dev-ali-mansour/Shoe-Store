@@ -2,6 +2,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="shoeViewModel"
+            type="com.udacity.shoestore.presentation.shoe_listing.ShoeViewModel" />
+    </data>
+
+    <!-- Constraint Layout because layout is complicated and Constraint Layout is flatten layout
+    and easy to render and to position the bottom buttons correctly in a simple way-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,6 +37,7 @@
             android:hint="@string/shoe_name_hint"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
+            android:text="@={shoeViewModel.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/txtShoeName"
             app:layout_constraintTop_toTopOf="parent" />
@@ -51,6 +61,7 @@
             android:hint="@string/company_name_hint"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
+            android:text="@={shoeViewModel.company}"
             app:layout_constraintEnd_toEndOf="@id/edtShoeName"
             app:layout_constraintStart_toStartOf="@id/edtShoeName"
             app:layout_constraintTop_toBottomOf="@id/edtShoeName" />
@@ -74,6 +85,7 @@
             android:hint="@string/shoe_size_hint"
             android:importantForAutofill="no"
             android:inputType="numberDecimal"
+            android:text="@={shoeViewModel.size}"
             app:layout_constraintEnd_toEndOf="@id/edtCompanyName"
             app:layout_constraintStart_toStartOf="@id/edtCompanyName"
             app:layout_constraintTop_toBottomOf="@id/edtCompanyName" />
@@ -97,6 +109,7 @@
             android:hint="@string/description_hint"
             android:importantForAutofill="no"
             android:inputType="textMultiLine|text"
+            android:text="@={shoeViewModel.description}"
             app:layout_constraintEnd_toEndOf="@id/edtShoeSize"
             app:layout_constraintStart_toStartOf="@id/txtShoeSize"
             app:layout_constraintTop_toBottomOf="@id/txtDescription" />

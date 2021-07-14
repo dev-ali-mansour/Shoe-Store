@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="shoe_list_item"
+            name="shoe"
             type="com.udacity.shoestore.domain.model.Shoe" />
     </data>
 
@@ -19,7 +19,8 @@
         app:cardCornerRadius="25dp"
         app:cardUseCompatPadding="true"
         app:cardElevation="6dp">
-
+        <!-- Using Constraint Layout because I prefer to have more control on where the items will be displayed on the screen and
+         avoid creating multiple nested Linear Layouts to have the same layout for rendering performance-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +41,7 @@
                 style="@style/ListItemValueTextViewStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@={shoe_list_item.name}"
+                android:text="@={shoe.name}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/txtShoeName"
                 app:layout_constraintTop_toTopOf="parent"
@@ -60,7 +61,7 @@
                 style="@style/ListItemValueTextViewStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@={shoe_list_item.company}"
+                android:text="@={shoe.company}"
                 app:layout_constraintEnd_toEndOf="@id/txtShoeNameValue"
                 app:layout_constraintStart_toStartOf="@id/txtShoeNameValue"
                 app:layout_constraintTop_toTopOf="@id/txtCompanyName"
@@ -79,8 +80,8 @@
                 android:id="@+id/txtShoeSizeValue"
                 style="@style/ListItemValueTextViewStyle"
                 android:layout_width="0dp"
+                android:text="@{String.valueOf(shoe.size)}"
                 android:layout_height="wrap_content"
-                android:text="@{Double.toString(shoe_list_item.Size)}"
                 app:layout_constraintEnd_toEndOf="@id/txtShoeNameValue"
                 app:layout_constraintStart_toStartOf="@id/txtShoeNameValue"
                 app:layout_constraintTop_toTopOf="@id/txtShoeSize"
@@ -100,7 +101,7 @@
                 style="@style/ListItemValueTextViewStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@={shoe_list_item.description}"
+                android:text="@={shoe.description}"
                 app:layout_constraintEnd_toEndOf="@id/txtShoeNameValue"
                 app:layout_constraintStart_toStartOf="@id/txtShoeNameValue"
                 app:layout_constraintTop_toTopOf="@id/txtDescription"

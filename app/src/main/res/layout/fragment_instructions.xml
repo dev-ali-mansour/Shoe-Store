@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Constraint Layout because I want to have more control on where the items will be displayed on the screen
+    and to position the next button correctly in a simple way-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/instructions_constraint_layout"
         android:layout_width="match_parent"

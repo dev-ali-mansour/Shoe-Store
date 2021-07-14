@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.udacity.shoestore.R
@@ -16,34 +18,36 @@ import timber.log.Timber
 
 class ShoeDetailsFragment : Fragment() {
     private val viewModel: ShoeViewModel by activityViewModels()
+    private lateinit var binding: FragmentShoeDetailsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         requireActivity().title = getString(R.string.add_shoe_detail)
-        val binding = FragmentShoeDetailsBinding.inflate(
+        binding = FragmentShoeDetailsBinding.inflate(
             inflater,
             container,
             false
         )
         binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            shoeViewModel = viewModel
+
             btnSave.setOnClickListener {
                 runCatching {
-                    val shoe = Shoe(
-                        edtShoeName.text.toString(),
-                        edtShoeSize.text.toString().toDouble(),
-                        edtCompanyName.text.toString(),
-                        edtDescription.text.toString()
-                    )
-                    viewModel.addShoe(shoe)
+                    viewModel.addShoe()
                     root.findNavController()
                         .navigate(
                             ShoeDetailsFragmentDirections
                                 .actionShoeDetailsToShoeListings()
                         )
                 }.onFailure {
-                    Snackbar.make(binding.root,"Please enter shoe details correctly",Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(
+                        binding.root,
+                        "Please enter shoe details correctly",
+                        Snackbar.LENGTH_LONG
+                    ).show()
                     Timber.e("Add Shoe Failure: $it")
                 }
             }
@@ -56,6 +60,7 @@ class ShoeDetailsFragment : Fragment() {
                     )
             }
         }
+
         return binding.root
     }
 }
